@@ -4,6 +4,7 @@ import {
   SUMBIT_USERNAME,
   STORE_DATA,
   TO_LOADING_STATE,
+  STOP_LOADING_STATE,
 } from "../constants";
 import { getNewUsername, getNewUsers } from "../helpers";
 
@@ -17,9 +18,11 @@ const rootReducer = (state = initState, action) => {
       return { ...state, username, input: "" };
     case STORE_DATA:
       const users = getNewUsers(action.data, action.username, state.users);
-      return { ...state, users, loading: false };
+      return { ...state, users };
     case TO_LOADING_STATE:
       return { ...state, loading: true };
+    case STOP_LOADING_STATE:
+      return { ...state, loading: false };
     default:
       return state;
   }
