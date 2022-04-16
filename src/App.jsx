@@ -5,9 +5,9 @@ import { useEffect } from "react";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { input, username, user } = useSelector(
-    ({ input, username, users }) => {
-      return { input, username, user: username && users[username] };
+  const { input, username, user, loading } = useSelector(
+    ({ input, username, users, loading }) => {
+      return { input, username, loading, user: username && users[username] };
     }
   );
 
@@ -28,7 +28,7 @@ const App = () => {
           <div>{name}</div>
           <div>{description}</div>
           <div>{created}</div>
-          <a href={url} target="_blank">
+          <a href={url} rel="noreferrer">
             link
           </a>
         </div>
@@ -48,6 +48,7 @@ const App = () => {
         <button type="submit">Generate Timeline</button>
       </form>
       {username}
+      {loading && "LOADING"}
       {reposElm}
     </div>
   );
