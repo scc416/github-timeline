@@ -4,6 +4,10 @@ import {
   STORE_DATA,
   TO_LOADING_STATE,
   STOP_LOADING_STATE,
+  ADD_ERROR,
+  REMOVE_ERROR,
+  ADD_USERNAME_ERROR,
+  REMOVE_USERNAME_ERROR,
 } from "../constants";
 import axios from "axios";
 
@@ -15,6 +19,29 @@ export const submitUsername = () => {
   return { type: SUMBIT_USERNAME };
 };
 
+export const removeError = () => {
+  return { type: REMOVE_ERROR };
+};
+
+export const removeUsernameError = () => {
+  return { type: REMOVE_USERNAME_ERROR };
+};
+
+const makeError = ({ status, statusText }) => {
+  switch (status) {
+    case 404:
+      return {
+        type: ADD_USERNAME_ERROR,
+        error: "Invalid username",
+      };
+    default:
+      return {
+        type: ADD_ERROR,
+        error: statusText,
+      };
+  }
+};
+
 const fetchMorePage = async (dispatch, username, pageNum, length) => {
   if (length === 100) {
     const url = `/users/${username}/repos?sort=created&per_page=100&page=${pageNum}`;
@@ -24,7 +51,9 @@ const fetchMorePage = async (dispatch, username, pageNum, length) => {
       dispatch({ type: STORE_DATA, username, data });
       fetchMorePage(dispatch, username, pageNum + 1, data.length);
     } catch (e) {
-      console.log(e);
+      dispatch({ type: STOP_LOADING_STATE });
+      const action = makeError(response);
+      dispatch(action);
     }
   } else {
     dispatch({ type: STOP_LOADING_STATE });
@@ -39,8 +68,10 @@ export const fetchData = (username) => {
       const { data } = await axios.get(url);
       dispatch({ type: STORE_DATA, username, data });
       fetchMorePage(dispatch, username, 2, data.length);
-    } catch (e) {
-      console.log(e);
+    } catch ({ response }) {
+      dispatch({ type: STOP_LOADING_STATE });
+      const action = makeError(response);
+      dispatch(action);
     }
   };
 };

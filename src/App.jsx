@@ -1,15 +1,45 @@
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { updateInput, submitUsername, fetchData } from "./actions";
+import {
+  updateInput,
+  submitUsername,
+  fetchData,
+  removeError,
+  removeUsernameError,
+} from "./actions";
 import { useEffect } from "react";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { input, username, user, loading } = useSelector(
-    ({ input, username, users, loading }) => {
-      return { input, username, loading, user: username && users[username] };
+  const { input, username, user, loading, error, usernameError } = useSelector(
+    ({ input, username, users, loading, error, usernameError }) => {
+      return {
+        input,
+        error,
+        username,
+        loading,
+        usernameError,
+        user: username && users[username],
+      };
     }
   );
+
+  useEffect(() => {
+    if (error) {
+      const hideError = setTimeout(() => dispatch(removeError()), 5000);
+      return () => clearTimeout(hideError);
+    }
+  }, [error]);
+
+  useEffect(() => {
+    if (usernameError) {
+      const hideUsernameError = setTimeout(
+        () => dispatch(removeUsernameError()),
+        5000
+      );
+      return () => clearTimeout(hideUsernameError);
+    }
+  }, [usernameError]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -45,6 +75,9 @@ const App = () => {
         />
         <button type="submit">Generate Timeline</button>
       </form>
+      {usernameError}
+      <br />
+      {error}
       {username}
       {reposElm}
       {loading && "LOADING"}
