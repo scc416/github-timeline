@@ -28,7 +28,7 @@ const App = () => {
           <div>{name}</div>
           <div>{description}</div>
           <div>{created}</div>
-          <a href={url} rel="noreferrer">
+          <a href={url} rel="noreferrer" target="_blank">
             link
           </a>
         </div>
@@ -48,8 +48,8 @@ const App = () => {
         <button type="submit">Generate Timeline</button>
       </form>
       {username}
-      {loading && "LOADING"}
       {reposElm}
+      {loading && "LOADING"}
     </div>
   );
 };
