@@ -1,5 +1,10 @@
-import { initState, UPDATE_INPUT, SUMBIT_USERNAME } from "../constants";
-import { getNewUsername } from "../helpers";
+import {
+  initState,
+  UPDATE_INPUT,
+  SUMBIT_USERNAME,
+  STORE_DATA,
+} from "../constants";
+import { getNewUsername, getNewUsers } from "../helpers";
 
 const rootReducer = (state = initState, action) => {
   switch (action.type) {
@@ -9,6 +14,9 @@ const rootReducer = (state = initState, action) => {
     case SUMBIT_USERNAME:
       const username = getNewUsername(state.input);
       return { ...state, username, input: "" };
+    case STORE_DATA:
+      const users = getNewUsers(action.data, action.username, state.users);
+      return { ...state, users };
     default:
       return state;
   }
