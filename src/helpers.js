@@ -17,3 +17,5 @@ export const getUrl = (username, pageNum) => {
   if (pageNum) url += `&page=${pageNum}`;
   return url;
 };
+
+export const getInvalidUsername = (names, name) => names.concat([name]);

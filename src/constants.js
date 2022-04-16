@@ -5,8 +5,10 @@ export const initState = {
   loading: null,
   error: null,
   usernameError: null,
+  invalidUsername: [],
 };
 
+export const invalidUsernameError = { response: { status: 404 } };
 export const resultPerPage = 100;
 
 export const UPDATE_INPUT = "UPDATE_INPUT";
