@@ -23,6 +23,7 @@ const App = () => {
         />
         <button type="submit">Generate Timeline</button>
       </form>
+      {username}
     </div>
   );
 };
