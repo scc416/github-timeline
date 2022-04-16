@@ -1,3 +1,5 @@
+import { resultPerPage } from "./constants";
+
 export const getNewUsername = (input) => input.trim().toLowerCase();
 
 export const getNewUsers = (data, username, users) => {
@@ -8,4 +10,10 @@ export const getNewUsers = (data, username, users) => {
     })
   );
   return { ...users, [username]: formattedData };
+};
+
+export const getUrl = (username, pageNum) => {
+  let url = `/users/${username}/repos?sort=created&per_page=${resultPerPage}`;
+  if (pageNum) url += `&page=${pageNum}`;
+  return url;
 };

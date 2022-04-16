@@ -8,7 +8,9 @@ import {
   REMOVE_ERROR,
   ADD_USERNAME_ERROR,
   REMOVE_USERNAME_ERROR,
+  resultPerPage,
 } from "../constants";
+import { getUrl } from "../helpers";
 import axios from "axios";
 
 export const updateInput = (input) => {
@@ -43,14 +45,13 @@ const makeError = ({ status, statusText }) => {
 };
 
 const fetchMorePage = async (dispatch, username, pageNum, length) => {
-  if (length === 100) {
-    const url = `/users/${username}/repos?sort=created&per_page=100&page=${pageNum}`;
+  if (length === resultPerPage) {
+    const url = getUrl(username, pageNum);
     try {
-      dispatch({ type: TO_LOADING_STATE });
       const { data } = await axios.get(url);
       dispatch({ type: STORE_DATA, username, data });
       fetchMorePage(dispatch, username, pageNum + 1, data.length);
-    } catch (e) {
+    } catch ({ response }) {
       dispatch({ type: STOP_LOADING_STATE });
       const action = makeError(response);
       dispatch(action);
@@ -62,7 +63,7 @@ const fetchMorePage = async (dispatch, username, pageNum, length) => {
 
 export const fetchData = (username) => {
   return async (dispatch) => {
-    const url = `/users/${username}/repos?sort=created&per_page=100`;
+    const url = getUrl(username);
     try {
       dispatch({ type: TO_LOADING_STATE });
       const { data } = await axios.get(url);
