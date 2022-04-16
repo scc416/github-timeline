@@ -35,8 +35,6 @@ const App = () => {
       );
     });
 
-  useEffect(() => console.log(user), [user]);
-
   return (
     <div>
       <form onSubmit={submitHandler}>
