@@ -10,17 +10,33 @@ const App = () => {
       return { input, username, user: username && users[username] };
     }
   );
-  useEffect(() => console.log(username), [username]);
+
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(submitUsername());
   };
+
   useEffect(() => {
     if (username && !user) dispatch(fetchData(username));
-  }, []);
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
+  }, [username]);
+
+  const reposElm =
+    user &&
+    user.map(({ id, name, description, created, url }) => {
+      return (
+        <div key={id}>
+          <div>{name}</div>
+          <div>{description}</div>
+          <div>{created}</div>
+          <a href={url} target="_blank">
+            link
+          </a>
+        </div>
+      );
+    });
+
+  useEffect(() => console.log(user), [user]);
+
   return (
     <div>
       <form onSubmit={submitHandler}>
@@ -32,6 +48,7 @@ const App = () => {
         <button type="submit">Generate Timeline</button>
       </form>
       {username}
+      {reposElm}
     </div>
   );
 };
