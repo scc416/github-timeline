@@ -24,7 +24,6 @@ const UsernameForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log();
     dispatch(submitUsername());
   };
 

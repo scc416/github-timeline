@@ -12,7 +12,6 @@ const makeElm = (repos) => {
   }
   for (const repo of repos) {
     const date = getYear(repo.created) + 1;
-    console.log(date);
     result[date].push(repo);
   }
   const elms = [];
@@ -40,7 +39,14 @@ const TimelineList = () => {
 
   const reposElm = makeElm(repos);
 
-  return <div className="years">{reposElm}</div>;
+  return (
+    <>
+      <div className="years">
+        <div className="line"></div>
+        {reposElm}
+      </div>
+    </>
+  );
 };
 
 export default TimelineList;

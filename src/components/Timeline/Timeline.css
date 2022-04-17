@@ -14,6 +14,7 @@
   width: 100%;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 
 .Timeline .year {
@@ -107,4 +108,13 @@
   to {
     -webkit-transform: rotateZ(360deg);
   }
+}
+
+.line {
+  position: absolute;
+  left: calc(50%-1.5em);
+  top: 0;
+  height: 100%;
+  width: 3em;
+  background-color: #e5e5e5;
 }
