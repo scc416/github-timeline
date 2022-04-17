@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchData, removeError, removeUsernameError } from "actions";
+import { fetchData } from "actions";
 import TimelineList from "./TimeLineList";
 
 const Timeline = () => {
