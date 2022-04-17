@@ -6,10 +6,9 @@ import {
   STOP_LOADING_STATE,
   ADD_ERROR,
   REMOVE_ERROR,
-  ADD_USERNAME_ERROR,
-  REMOVE_USERNAME_ERROR,
   resultPerPage,
   invalidUsernameError,
+  USERNAME_ERROR_STR
 } from "constants";
 import { getUrl } from "helpers";
 import axios from "axios";
@@ -26,17 +25,13 @@ export const removeError = () => {
   return { type: REMOVE_ERROR };
 };
 
-export const removeUsernameError = () => {
-  return { type: REMOVE_USERNAME_ERROR };
-};
-
 const makeError = ({ status, statusText }, username) => {
   switch (status) {
     case 404:
       return {
         username,
-        type: ADD_USERNAME_ERROR,
-        error: "Invalid username",
+        type: ADD_ERROR,
+        error: USERNAME_ERROR_STR,
       };
     default:
       return {

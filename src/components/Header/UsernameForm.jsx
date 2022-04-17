@@ -1,26 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { updateInput, submitUsername, removeUsernameError } from "actions";
-import { useEffect } from "react";
-import { errorTimeout } from "constants";
+import { updateInput, submitUsername } from "actions";
 import Icon from "@mdi/react";
 import { mdiMagnify } from "@mdi/js";
 
 const UsernameForm = () => {
   const dispatch = useDispatch();
-  const { input, usernameError } = useSelector(({ input, usernameError }) => {
-    return { input, usernameError };
-  });
-
-  useEffect(() => {
-    if (usernameError) {
-      const hideUsernameError = setTimeout(
-        () => dispatch(removeUsernameError()),
-        errorTimeout
-      );
-      return () => clearTimeout(hideUsernameError);
-    }
-    // eslint-disable-next-line
-  }, [usernameError]);
+  const input = useSelector(({ input }) => input);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -30,10 +15,7 @@ const UsernameForm = () => {
   return (
     <form onSubmit={submitHandler}>
       <div className="input">
-        <Icon
-          path={mdiMagnify}
-          size={1}
-        />
+        <Icon path={mdiMagnify} size={1} />
         <input
           type="text"
           value={input}
@@ -41,7 +23,6 @@ const UsernameForm = () => {
           placeholder="Search GitHub Username"
         />
       </div>
-      {usernameError}
     </form>
   );
 };

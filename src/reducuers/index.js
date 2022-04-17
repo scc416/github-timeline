@@ -7,10 +7,13 @@ import {
   STOP_LOADING_STATE,
   ADD_ERROR,
   REMOVE_ERROR,
-  ADD_USERNAME_ERROR,
-  REMOVE_USERNAME_ERROR,
 } from "constants";
-import { getNewUsername, getNewUsers, getInvalidUsername } from "helpers";
+import {
+  getNewUsername,
+  getNewUsers,
+  getInvalidUsername,
+  errorAfterSubmit,
+} from "helpers";
 
 const rootReducer = (state = initState, action) => {
   switch (action.type) {
@@ -19,7 +22,8 @@ const rootReducer = (state = initState, action) => {
       return { ...state, input };
     case SUMBIT_USERNAME:
       const username = getNewUsername(state.input);
-      return { ...state, username, input: "", usernameError: null };
+      const error = errorAfterSubmit(state.error);
+      return { ...state, username, error, input: "" };
     case STORE_DATA:
       const users = getNewUsers(action.data, action.username, state.users);
       return { ...state, users };
@@ -27,16 +31,12 @@ const rootReducer = (state = initState, action) => {
       return { ...state, loading: true };
     case STOP_LOADING_STATE:
       return { ...state, loading: false };
-    case ADD_USERNAME_ERROR:
+    case ADD_ERROR:
       const invalidUsername = getInvalidUsername(
         state.invalidUsername,
         action.username
       );
-      return { ...state, invalidUsername, usernameError: action.error };
-    case REMOVE_USERNAME_ERROR:
-      return { ...state, usernameError: null };
-    case ADD_ERROR:
-      return { ...state, error: action.error };
+      return { ...state, invalidUsername, error: action.error };
     case REMOVE_ERROR:
       return { ...state, error: null };
     default:
