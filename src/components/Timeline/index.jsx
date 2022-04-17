@@ -19,7 +19,18 @@ const Timeline = () => {
 
   return (
     <>
-      {username}
+      {user && (
+        <>
+          Timeline of{" "}
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href={`https://github.com/${username}`}
+          >
+            {username}
+          </a>
+        </>
+      )}
       <TimelineList />
     </>
   );

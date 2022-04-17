@@ -1,21 +1,16 @@
 import "App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData, removeError, removeUsernameError } from "actions";
+import { removeError } from "actions";
 import { useEffect } from "react";
 import UsernameForm from "components/UsernameForm";
 import Timeline from "components/Timeline/";
+import Spin from "components/Spin";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { loading, error, usernameError } = useSelector(
-    ({ loading, error, usernameError }) => {
-      return {
-        error,
-        loading,
-        usernameError,
-      };
-    }
-  );
+  const { loading, error } = useSelector(({ loading, error }) => {
+    return { error, loading };
+  });
 
   useEffect(() => {
     if (error) {
@@ -25,12 +20,12 @@ const App = () => {
   }, [error]);
 
   return (
-    <div>
+    <>
       <UsernameForm />
       {error}
       <Timeline />
-      {loading && "LOADING"}
-    </div>
+      <Spin />
+    </>
   );
 };
 
