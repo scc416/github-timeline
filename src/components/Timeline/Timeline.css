@@ -29,7 +29,8 @@
 }
 
 .Timeline .repo {
-  width: 40%;
+  width: 44%;
+  max-width: 40em;
 }
 
 .Timeline .repo:nth-child(even) {
@@ -40,33 +41,40 @@
   text-align: right;
 }
 
-.Timeline h2 {
+/* .Timeline .repo:nth-child(even)::before {
+  height: 1em;
+  width: 1em;
+  background: #fff;
+}
+
+.Timeline .repo:nth-child(odd)::after {
+  height: 1em;
+  width: 1em;
+  background: #fff;
+} */
+
+.Timeline h3 {
   margin: 0;
-  flex: 0 1 auto;
 }
 
 .Timeline .repo-title {
   display: flex;
   align-items: center;
+  margin-bottom: 0.5em;
 }
 
 .Timeline .repo:nth-child(odd) > .repo-title {
-  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
-/*
-.Timeline .repo:nth-child(odd) > .repo-title {
-  flex-direction: row-reverse;
-} */
 
 .year-label {
   align-self: center;
 }
 
 .Timeline a.link {
-  background: #ec714a;
+  background: #4678ff;
   text-decoration: none;
   color: #e5e5e5;
-  margin: 0 0.5em;
-  padding: 0.3em;
-  border-radius: 0.1em;
+  padding: 0.3em 0.4em;
+  border-radius: 0.2em;
 }
