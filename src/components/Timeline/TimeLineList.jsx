@@ -42,7 +42,7 @@ const TimelineList = () => {
   return (
     <>
       <div className="years">
-        <div className="line"></div>
+        {repos && repos.length && <div className="line"></div>}
         {reposElm}
       </div>
     </>
