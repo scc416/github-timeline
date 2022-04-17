@@ -1,16 +1,19 @@
 import { useSelector } from "react-redux";
 
 const Title = () => {
-  const { repos, username } = useSelector(({ username, users }) => {
-    return {
-      username,
-      repos: username && users[username],
-    };
-  });
+  const { repos, username, loading } = useSelector(
+    ({ username, users, loading }) => {
+      return {
+        username,
+        repos: username && users[username],
+        loading,
+      };
+    }
+  );
 
   return (
     <h1>
-      {repos && (
+      {repos ? (
         <>
           Timeline of @
           <a
@@ -21,6 +24,8 @@ const Title = () => {
             {username}
           </a>
         </>
+      ) : (
+        !loading && "Enter Github Username to get user's timeline"
       )}
     </h1>
   );
