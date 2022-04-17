@@ -25,7 +25,6 @@
   border-top: #e5e5e550 dashed 0.1em;
   margin-bottom: 2em;
   align-items: center;
-  color: #a5b4d9;
 }
 
 h5 {
@@ -46,6 +45,7 @@ h5 {
 .Timeline .repo {
   width: 44%;
   max-width: 40em;
+  color: #a5b4d9;
 }
 
 .Timeline .repo:nth-child(even) {
