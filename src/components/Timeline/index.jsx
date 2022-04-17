@@ -9,15 +9,15 @@ import "./Timeline.css";
 const Timeline = () => {
   const dispatch = useDispatch();
 
-  const { user, username } = useSelector(({ username, users }) => {
+  const { repos, username } = useSelector(({ username, users }) => {
     return {
       username,
-      user: username && users[username],
+      repos: username && users[username],
     };
   });
 
   useEffect(() => {
-    if (username && !user) dispatch(fetchData(username));
+    if (username && !repos) dispatch(fetchData(username));
     // eslint-disable-next-line
   }, [username]);
 

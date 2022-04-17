@@ -32,9 +32,9 @@ const UsernameForm = () => {
         type="text"
         value={input}
         onChange={(e) => dispatch(updateInput(e.target.value))}
+        placeholder="Search GitHub Username"
       />
       {usernameError}
-      <button type="submit">Generate Timeline</button>
     </form>
   );
 };

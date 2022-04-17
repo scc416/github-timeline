@@ -1,16 +1,16 @@
 import { useSelector } from "react-redux";
 
 const Title = () => {
-  const { user, username } = useSelector(({ username, users }) => {
+  const { repos, username } = useSelector(({ username, users }) => {
     return {
       username,
-      user: username && users[username],
+      repos: username && users[username],
     };
   });
 
   return (
     <span>
-      {user && (
+      {repos && (
         <>
           Timeline of{" "}
           <a

@@ -3,12 +3,14 @@ import { dateFormatter } from "helpers";
 const TimelineListItem = ({ id, name, description, created, url }) => {
   return (
     <div key={id}>
-      <h2>{name}</h2>
+      <div>
+        <h2>{name}</h2>
+        <a href={url} rel="noreferrer" target="_blank">
+          link
+        </a>
+      </div>
       <div>{description}</div>
-      <div>{dateFormatter(created)}</div>
-      <a href={url} rel="noreferrer" target="_blank">
-        link
-      </a>
+      <span>{dateFormatter(created)}</span>
     </div>
   );
 };

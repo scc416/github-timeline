@@ -22,3 +22,4 @@ export const getUrl = (username, pageNum) => {
 export const getInvalidUsername = (names, name) => names.concat([name]);
 
 export const dateFormatter = (date) => moment(date).format("LL");
+export const getYear = (date) => parseInt(moment(date).format("YYYY"));
