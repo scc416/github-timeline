@@ -20,23 +20,6 @@ body {
   height: 100%;
 }
 
-.spin {
-  display: block;
-  width: 2em;
-  height: 2em;
-  margin: 1.5em auto;
-  border: 0.15em solid transparent;
-  border-radius: 50%;
-  border-top-color: #ff8800;
-  animation: spin 1s ease infinite;
-}
-
-@keyframes spin {
-  to {
-    -webkit-transform: rotateZ(360deg);
-  }
-}
-
 .Error {
   position: absolute;
   top: 1em;
