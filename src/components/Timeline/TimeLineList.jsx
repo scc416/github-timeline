@@ -10,7 +10,7 @@ const TimelineList = () => {
     user &&
     user.map((details) => <TimelineListItem {...details} key={details.id} />);
 
-  return <>{reposElm}</>;
+  return <div>{reposElm}</div>;
 };
 
 export default TimelineList;
