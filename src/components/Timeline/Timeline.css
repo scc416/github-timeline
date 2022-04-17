@@ -49,6 +49,55 @@ h5 {
   width: 44%;
   max-width: 40em;
   color: #a5b4d9;
+  position: relative;
+}
+
+.repo:nth-child(even) .repo-title::before {
+  content: "";
+  position: absolute;
+  border-top: #4578ff solid 0.1em;
+  height: 1em;
+  width: 4em;
+  left: -3.4em;
+  top: 0.6em;
+  z-index: 0;
+}
+
+.repo:nth-child(odd) .repo-title::before {
+  content: "";
+  position: absolute;
+  border-top: #4578ff solid 0.1em;
+  height: 1em;
+  width: 4em;
+  right: -3.26em;
+  top: 0.6em;
+  z-index: 0;
+}
+
+.repo:nth-child(even) .repo-title::after {
+  content: "";
+  position: absolute;
+  background: #4578ff;
+  height: 2em;
+  width: 2em;
+  left: -3.4em;
+  top: -0.6em;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 0.5em 0.3em #4578ffcc;
+  box-shadow: 0 0 0.5em 0.3em #4578ffcc;
+}
+
+.repo:nth-child(odd) .repo-title::after {
+  content: "";
+  position: absolute;
+  background: #4578ff;
+  height: 2em;
+  width: 2em;
+  right: -3.26em;
+  top: -0.6em;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 0.5em 0.3em #4578ffcc;
+  box-shadow: 0 0 0.5em 0.3em #4578ffcc;
 }
 
 .Timeline .repo:nth-child(even) {
@@ -61,12 +110,14 @@ h5 {
 
 .Timeline h3 {
   margin: 0;
+  z-index: 1;
 }
 
 .Timeline .repo-title {
   display: flex;
   align-items: center;
   margin-bottom: 0.5em;
+  z-index: 1;
 }
 
 .Timeline .repo:nth-child(odd) > .repo-title {
@@ -115,6 +166,7 @@ h5 {
   padding: 0.3em 0.4em;
   border-radius: 0.2em;
   font-size: 0.95em;
+  z-index: 1;
 }
 
 .Timeline a.link:hover {
