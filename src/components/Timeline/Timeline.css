@@ -29,6 +29,8 @@
 .Timeline .year > div {
   display: flex;
   flex-direction: column;
+  width: 80%;
+  max-width: 40em;
 }
 
 .Timeline .year:last-child {
