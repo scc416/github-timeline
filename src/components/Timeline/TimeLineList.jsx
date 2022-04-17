@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import TimelineListItem from "./TimelineListItem";
-import { getYear } from "helpers";
+import { getYear, displayNow } from "helpers";
 
 const makeElm = (repos) => {
   if (!repos || !Array.isArray(repos)) return;
@@ -22,7 +22,7 @@ const makeElm = (repos) => {
     const elm = (
       <div key={year} className="year">
         <div>
-          <div className="year-label">{year}</div>
+          <div className="year-label">{displayNow(year)}</div>
           {reposElm}
         </div>
       </div>

@@ -23,3 +23,5 @@ export const getInvalidUsername = (names, name) => names.concat([name]);
 
 export const dateFormatter = (date) => moment(date).format("LL");
 export const getYear = (date) => parseInt(moment(date).format("YYYY"));
+export const displayNow = (year) =>
+  year == parseInt(moment().format("YYYY")) + 1 ? "Now" : year;
