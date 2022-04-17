@@ -1,17 +1,13 @@
-import "./App.css";
+import "App.css";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  submitUsername,
-  fetchData,
-  removeError,
-  removeUsernameError,
-} from "actions";
+import { fetchData, removeError, removeUsernameError } from "actions";
 import { useEffect } from "react";
 import UsernameForm from "components/UsernameForm";
+import Timeline from "components/Timeline/";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { input, username, user, loading, error, usernameError } = useSelector(
+  const { username, user, loading, error, usernameError } = useSelector(
     ({ input, username, users, loading, error, usernameError }) => {
       return {
         input,
@@ -41,11 +37,6 @@ const App = () => {
     }
   }, [usernameError]);
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    dispatch(submitUsername());
-  };
-
   useEffect(() => {
     if (username && !user) dispatch(fetchData(username));
   }, [username]);
@@ -72,7 +63,7 @@ const App = () => {
       <br />
       {error}
       {username}
-      {reposElm}
+      <Timeline />
       {loading && "LOADING"}
     </div>
   );
