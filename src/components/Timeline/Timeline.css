@@ -5,23 +5,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2em 0;
   border-radius: 0.5em 0.5em 0 0;
   width: 100%;
 }
 
 .Timeline .years {
   display: flex;
-  flex-direction: column;
   width: 100%;
-  max-width: 75%;
-  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .Timeline .year {
   display: flex;
   flex-direction: column;
   min-height: 5em;
+  width: 100%;
+  border-top: #e5e5e550 dashed 0.1em;
+  margin-bottom: 2em;
+  align-items: center;
+}
+
+.Timeline .year > div {
+  display: flex;
+  flex-direction: column;
 }
 
 .Timeline .year:last-child {
@@ -41,18 +48,6 @@
   text-align: right;
 }
 
-/* .Timeline .repo:nth-child(even)::before {
-  height: 1em;
-  width: 1em;
-  background: #fff;
-}
-
-.Timeline .repo:nth-child(odd)::after {
-  height: 1em;
-  width: 1em;
-  background: #fff;
-} */
-
 .Timeline h3 {
   margin: 0;
 }
@@ -69,6 +64,8 @@
 
 .year-label {
   align-self: center;
+  position: relative;
+  bottom: 0.7em;
 }
 
 .Timeline a.link {
@@ -77,4 +74,18 @@
   color: #e5e5e5;
   padding: 0.3em 0.4em;
   border-radius: 0.2em;
+}
+
+.Timeline a.link:hover {
+  background: #ec714a;
+}
+
+.Timeline h1 a {
+  border-bottom: #ec714a solid 0.2em;
+  text-decoration: none;
+  color: #e5e5e5;
+}
+
+.Timeline h1 a:hover {
+  border-bottom: #4678ff solid 0.2em;
 }

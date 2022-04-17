@@ -22,8 +22,10 @@ const makeElm = (repos) => {
     ));
     const elm = (
       <div key={year} className="year">
-        <div className="year-label">{year}</div>
-        {reposElm}
+        <div>
+          <div className="year-label">{year}</div>
+          {reposElm}
+        </div>
       </div>
     );
     elms.push(elm);

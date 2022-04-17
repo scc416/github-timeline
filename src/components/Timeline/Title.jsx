@@ -9,7 +9,7 @@ const Title = () => {
   });
 
   return (
-    <span>
+    <h1>
       {repos && (
         <>
           Timeline of{" "}
@@ -22,7 +22,7 @@ const Title = () => {
           </a>
         </>
       )}
-    </span>
+    </h1>
   );
 };
 
