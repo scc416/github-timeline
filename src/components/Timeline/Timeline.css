@@ -19,7 +19,7 @@
 .Timeline .year {
   display: flex;
   flex-direction: column;
-  min-height: 5em;
+  min-height: 3em;
   width: 100%;
   border-top: #e5e5e550 dashed 0.1em;
   margin-bottom: 2em;
