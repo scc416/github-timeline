@@ -7,15 +7,12 @@ import Timeline from "components/Timeline/";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { username, user, loading, error, usernameError } = useSelector(
-    ({ input, username, users, loading, error, usernameError }) => {
+  const { loading, error, usernameError } = useSelector(
+    ({ loading, error, usernameError }) => {
       return {
-        input,
         error,
-        username,
         loading,
         usernameError,
-        user: username && users[username],
       };
     }
   );
@@ -27,42 +24,10 @@ const App = () => {
     }
   }, [error]);
 
-  useEffect(() => {
-    if (usernameError) {
-      const hideUsernameError = setTimeout(
-        () => dispatch(removeUsernameError()),
-        5000
-      );
-      return () => clearTimeout(hideUsernameError);
-    }
-  }, [usernameError]);
-
-  useEffect(() => {
-    if (username && !user) dispatch(fetchData(username));
-  }, [username]);
-
-  const reposElm =
-    user &&
-    user.map(({ id, name, description, created, url }) => {
-      return (
-        <div key={id}>
-          <div>{name}</div>
-          <div>{description}</div>
-          <div>{created}</div>
-          <a href={url} rel="noreferrer" target="_blank">
-            link
-          </a>
-        </div>
-      );
-    });
-
   return (
     <div>
       <UsernameForm />
-      {usernameError}
-      <br />
       {error}
-      {username}
       <Timeline />
       {loading && "LOADING"}
     </div>
