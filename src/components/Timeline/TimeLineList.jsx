@@ -38,7 +38,7 @@ const TimelineList = () => {
 
   const reposElm = makeElm(repos);
 
-  return <div>{reposElm}</div>;
+  return <div className="years">{reposElm}</div>;
 };
 
 export default TimelineList;

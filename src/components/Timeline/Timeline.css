@@ -9,3 +9,20 @@
   border-radius: 0.5em 0.5em 0 0;
   width: 100%;
 }
+
+.Timeline .years {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 75%;
+  align-items: center;
+}
+
+.Timeline .year {
+  display: flex;
+  flex-direction: column;
+}
+
+.Timeline .repo {
+  max-width: 40%;
+}

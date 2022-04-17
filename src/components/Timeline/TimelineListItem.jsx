@@ -2,7 +2,7 @@ import { dateFormatter } from "helpers";
 
 const TimelineListItem = ({ id, name, description, created, url }) => {
   return (
-    <div key={id}>
+    <div key={id} className="repo">
       <div>
         <h2>{name}</h2>
         <a href={url} rel="noreferrer" target="_blank">
