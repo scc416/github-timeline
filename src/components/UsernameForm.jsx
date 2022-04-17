@@ -17,6 +17,7 @@ const UsernameForm = () => {
       );
       return () => clearTimeout(hideUsernameError);
     }
+  // eslint-disable-next-line
   }, [usernameError]);
 
   const submitHandler = (e) => {

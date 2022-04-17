@@ -15,6 +15,7 @@ const Timeline = () => {
 
   useEffect(() => {
     if (username && !user) dispatch(fetchData(username));
+  // eslint-disable-next-line
   }, [username]);
 
   return (

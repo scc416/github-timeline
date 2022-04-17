@@ -11,6 +11,7 @@ const Error = () => {
       const hideError = setTimeout(() => dispatch(removeError()), 5000);
       return () => clearTimeout(hideError);
     }
+  // eslint-disable-next-line
   }, [error]);
 
   return <>{error}</>;
