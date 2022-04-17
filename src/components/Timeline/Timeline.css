@@ -38,6 +38,8 @@ h4 {
   display: flex;
   flex-direction: column;
   max-width: 40em;
+  width: 100%;
+  padding: 0 1em;
 }
 
 .description {
@@ -127,6 +129,7 @@ h4 {
 
   .Timeline .year > div {
     width: 80%;
+    padding: 0;
   }
 
   .year-label {
