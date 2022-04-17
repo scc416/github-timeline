@@ -8,7 +8,7 @@ const TimelineListItem = ({ id, name, description, created, url }) => {
           <h3>{name}</h3>
         </a>
       </div>
-      <h5>{dateFormatter(created)}</h5>
+      <h4>{dateFormatter(created)}</h4>
       <div className="description">{description || "No Description."}</div>
     </div>
   );
