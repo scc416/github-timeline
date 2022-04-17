@@ -1,4 +1,5 @@
 import { resultPerPage } from "constants";
+import moment from "moment";
 
 export const getNewUsername = (input) => input.trim().toLowerCase();
 
@@ -19,3 +20,5 @@ export const getUrl = (username, pageNum) => {
 };
 
 export const getInvalidUsername = (names, name) => names.concat([name]);
+
+export const dateFormatter = (date) => moment(date).format("LL");
