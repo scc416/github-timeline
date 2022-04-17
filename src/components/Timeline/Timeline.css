@@ -21,8 +21,52 @@
 .Timeline .year {
   display: flex;
   flex-direction: column;
+  min-height: 5em;
+}
+
+.Timeline .year:last-child {
+  min-height: 0;
 }
 
 .Timeline .repo {
-  max-width: 40%;
+  width: 40%;
+}
+
+.Timeline .repo:nth-child(even) {
+  align-self: flex-end;
+}
+
+.Timeline .repo:nth-child(odd) {
+  text-align: right;
+}
+
+.Timeline h2 {
+  margin: 0;
+  flex: 0 1 auto;
+}
+
+.Timeline .repo-title {
+  display: flex;
+  align-items: center;
+}
+
+.Timeline .repo:nth-child(odd) > .repo-title {
+  flex-direction: row-reverse;
+}
+/*
+.Timeline .repo:nth-child(odd) > .repo-title {
+  flex-direction: row-reverse;
+} */
+
+.year-label {
+  align-self: center;
+}
+
+.Timeline a.link {
+  background: #ec714a;
+  text-decoration: none;
+  color: #e5e5e5;
+  margin: 0 0.5em;
+  padding: 0.3em;
+  border-radius: 0.1em;
 }
