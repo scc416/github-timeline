@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { updateInput, submitUsername, removeUsernameError } from "../actions";
+import { updateInput, submitUsername, removeUsernameError } from "actions";
 import { useEffect } from "react";
-import { errorTimeout } from "../constants";
+import { errorTimeout } from "constants";
 
 const UsernameForm = () => {
   const dispatch = useDispatch();

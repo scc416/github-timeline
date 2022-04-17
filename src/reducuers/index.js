@@ -9,8 +9,8 @@ import {
   REMOVE_ERROR,
   ADD_USERNAME_ERROR,
   REMOVE_USERNAME_ERROR,
-} from "../constants";
-import { getNewUsername, getNewUsers, getInvalidUsername } from "../helpers";
+} from "constants";
+import { getNewUsername, getNewUsers, getInvalidUsername } from "helpers";
 
 const rootReducer = (state = initState, action) => {
   switch (action.type) {

@@ -1,14 +1,13 @@
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  updateInput,
   submitUsername,
   fetchData,
   removeError,
   removeUsernameError,
-} from "./actions";
+} from "actions";
 import { useEffect } from "react";
-import UsernameForm from "./components/UsernameForm";
+import UsernameForm from "components/UsernameForm";
 
 const App = () => {
   const dispatch = useDispatch();

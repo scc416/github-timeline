@@ -1,4 +1,4 @@
-import { resultPerPage } from "./constants";
+import { resultPerPage } from "constants";
 
 export const getNewUsername = (input) => input.trim().toLowerCase();
 

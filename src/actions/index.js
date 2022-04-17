@@ -10,8 +10,8 @@ import {
   REMOVE_USERNAME_ERROR,
   resultPerPage,
   invalidUsernameError,
-} from "../constants";
-import { getUrl } from "../helpers";
+} from "constants";
+import { getUrl } from "helpers";
 import axios from "axios";
 
 export const updateInput = (input) => {
