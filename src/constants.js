@@ -10,6 +10,7 @@ export const initState = {
 
 export const invalidUsernameError = { response: { status: 404 } };
 export const resultPerPage = 100;
+export const errorTimeout = 5000;
 
 export const UPDATE_INPUT = "UPDATE_INPUT";
 export const SUMBIT_USERNAME = "SUMBIT_USERNAME";

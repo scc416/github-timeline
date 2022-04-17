@@ -8,6 +8,7 @@ import {
   removeUsernameError,
 } from "./actions";
 import { useEffect } from "react";
+import UsernameForm from "./components/UsernameForm";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -67,14 +68,7 @@ const App = () => {
 
   return (
     <div>
-      <form onSubmit={submitHandler}>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => dispatch(updateInput(e.target.value))}
-        />
-        <button type="submit">Generate Timeline</button>
-      </form>
+      <UsernameForm />
       {usernameError}
       <br />
       {error}
