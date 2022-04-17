@@ -12,7 +12,7 @@ const Title = () => {
     <h1>
       {repos && (
         <>
-          Timeline of{" "}
+          Timeline of @
           <a
             rel="noreferrer"
             target="_blank"

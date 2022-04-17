@@ -5,6 +5,7 @@ import TimelineList from "./TimeLineList";
 import Spin from "./Spin";
 import Title from "./Title";
 import "./Timeline.css";
+import useBackToTop from "hooks/useBackToTop";
 
 const Timeline = () => {
   const dispatch = useDispatch();
@@ -21,9 +22,11 @@ const Timeline = () => {
     // eslint-disable-next-line
   }, [username]);
 
+  const timeline = useBackToTop(repos);
+
   return (
     <>
-      <div className="Timeline">
+      <div className="Timeline" ref={timeline}>
         <Title />
         <TimelineList />
         <Spin />
