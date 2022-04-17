@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchData } from "actions";
-import TimelineList from "./TimeLineList";
 
 const Timeline = () => {
   const dispatch = useDispatch();
@@ -13,15 +12,20 @@ const Timeline = () => {
     };
   });
 
-  useEffect(() => {
-    if (username && !user) dispatch(fetchData(username));
-  // eslint-disable-next-line
-  }, [username]);
-
   return (
     <>
-
-      <TimelineList />
+      {user && (
+        <>
+          Timeline of{" "}
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href={`https://github.com/${username}`}
+          >
+            {username}
+          </a>
+        </>
+      )}
     </>
   );
 };

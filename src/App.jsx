@@ -1,12 +1,12 @@
 import "App.css";
-import UsernameForm from "components/UsernameForm";
+import Header from "components/Header/UsernameForm";
 import Timeline from "components/Timeline/";
 import Spin from "components/Spin";
 import Error from "components/Error";
 
 const App = () => (
   <>
-    <UsernameForm />
+    <Header />
     <Error />
     <Timeline />
     <Spin />
