@@ -1,6 +1,5 @@
 import {
   UPDATE_INPUT,
-  SUMBIT_USERNAME,
   STORE_DATA,
   TO_LOADING_STATE,
   STOP_LOADING_STATE,
@@ -15,10 +14,6 @@ import axios from "axios";
 
 export const updateInput = (input) => {
   return { type: UPDATE_INPUT, input };
-};
-
-export const submitUsername = () => {
-  return { type: SUMBIT_USERNAME };
 };
 
 export const removeError = () => {
