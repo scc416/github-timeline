@@ -9,7 +9,6 @@ const Error = () => {
 
   useEffect(() => {
     if (error) {
-      console.log("ERROR")
       const hideError = setTimeout(() => dispatch(removeError()), errorTimeout);
       return () => clearTimeout(hideError);
     }

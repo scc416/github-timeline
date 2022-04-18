@@ -8,7 +8,7 @@ import {
   REMOVE_ERROR,
   resultPerPage,
   invalidUsernameError,
-  USERNAME_ERROR_STR
+  USERNAME_ERROR_STR,
 } from "constants";
 import { getUrl } from "helpers";
 import axios from "axios";
@@ -62,8 +62,9 @@ export const fetchData = (username) => {
   return async (dispatch, getState) => {
     const { invalidUsername } = getState();
     try {
-      const isValid = !invalidUsername.includes(username);
-      if (!isValid) throw invalidUsernameError;
+      const isInvalid = invalidUsername.includes(username);
+      if (isInvalid) throw invalidUsernameError;
+
       const url = getUrl(username);
       dispatch({ type: TO_LOADING_STATE });
       const { data } = await axios.get(url);
