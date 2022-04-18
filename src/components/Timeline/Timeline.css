@@ -177,13 +177,60 @@ h4 {
   left: calc(15.1vw - 16.5px);
 }
 
+.repo .repo-title::before {
+  content: "";
+  position: absolute;
+  border-top: #4578ff solid 0.1em;
+  width: 3em;
+  top: 0.9em;
+  z-index: 0;
+  left: calc(-0.77vw - 33px);
+}
+
+.repo .repo-title::after {
+  content: "";
+  position: absolute;
+  background: #4578ff;
+  height: 2em;
+  width: 2em;
+  top: 0em;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 0.5em 0.3em #4578ffcc;
+  box-shadow: 0 0 0.5em 0.3em #4578ffcc;
+  left: calc(-8.7vw - 12.71px);
+}
+
 @media (min-width: 640px) {
   .line {
     left: calc((100vw - 40em) / 2 + 17.5vw);
   }
+
+  .repo .repo-title::after {
+    left: calc(16vw - 171px);
+  }
 }
 
 @media (min-width: 768px) {
+  .repo:nth-child(even) .repo-title::before {
+    left: -2em;
+    right: unset;
+  }
+
+  .repo:nth-child(odd) .repo-title::before {
+    right: -2em;
+    left: unset;
+  }
+
+  .repo:nth-child(even) .repo-title::after {
+    left: -3.4em;
+    right: unset;
+  }
+
+  .repo:nth-child(odd) .repo-title::after {
+    right: -3.4em;
+    left: unset;
+  }
+
   .year:nth-child(even) .year-label {
     left: 3.2em;
     position: relative;
@@ -222,43 +269,6 @@ h4 {
 
   .year-label {
     align-self: center;
-  }
-
-  .repo .repo-title::before {
-    content: "";
-    position: absolute;
-    border-top: #4578ff solid 0.1em;
-    width: 3em;
-    top: 0.9em;
-    z-index: 0;
-  }
-
-  .repo:nth-child(even) .repo-title::before {
-    left: -2em;
-  }
-
-  .repo:nth-child(odd) .repo-title::before {
-    right: -2em;
-  }
-
-  .repo .repo-title::after {
-    content: "";
-    position: absolute;
-    background: #4578ff;
-    height: 2em;
-    width: 2em;
-    top: 0em;
-    border-radius: 50%;
-    -webkit-box-shadow: 0 0 0.5em 0.3em #4578ffcc;
-    box-shadow: 0 0 0.5em 0.3em #4578ffcc;
-  }
-
-  .repo:nth-child(even) .repo-title::after {
-    left: -3.4em;
-  }
-
-  .repo:nth-child(odd) .repo-title::after {
-    right: -3.4em;
   }
 
   .Timeline .repo:nth-child(even) {
