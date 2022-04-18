@@ -6,6 +6,7 @@ export const initState = {
   error: null,
   invalidUsername: [],
   prevUsername: null,
+  newUsername: false,
 };
 
 export const invalidUsernameError = { response: { status: 404 } };

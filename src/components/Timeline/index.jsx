@@ -9,16 +9,14 @@ import useBackToTop from "hooks/useBackToTop";
 const Timeline = () => {
   const dispatch = useDispatch();
 
-  const { prevUsername, username, currentRepo } = useSelector(
-    ({ prevUsername, username, users }) => {
+  const { prevUsername, username, currentRepo, newUsername } = useSelector(
+    ({ prevUsername, username, users, newUsername }) => {
       const currentData = username && username in users && users[username];
-      const prevData =
-        prevUsername && prevUsername in users && users[prevUsername];
       return {
         username,
-        repos: currentData || prevData,
         currentRepo: currentData,
         prevUsername,
+        newUsername,
       };
     }
   );
@@ -26,7 +24,7 @@ const Timeline = () => {
   useEffect(() => {
     if (username && !currentRepo) dispatch(fetchData(username));
     // eslint-disable-next-line
-  }, [username]);
+  }, [username, newUsername]);
 
   const timeline = useBackToTop(prevUsername);
 

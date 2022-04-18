@@ -28,4 +28,5 @@ body {
   border-radius: 0.2em;
   color: #2d315d;
   padding: 0.3em;
+  z-index: 2;
 }

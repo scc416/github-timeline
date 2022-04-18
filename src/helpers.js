@@ -15,13 +15,22 @@ export const getNewUsers = (
   currentUsername,
   prevUsername
 ) => {
-  const existingData = users[username] || [];
-  const formattedData = existingData.concat(
-    data.map(({ id, name, created_at, html_url, description }) => {
-      return { id, name, description, created: created_at, url: html_url };
-    })
-  );
-  const newUsers = { ...users, [username]: formattedData };
+  let result = users[username] || [];
+  for (const repo of data) {
+    const alreadyExist = result.find(({ id }) => id === repo.id);
+    if (!alreadyExist) {
+      const {
+        id,
+        name,
+        created_at: created,
+        html_url: url,
+        description,
+      } = repo;
+      const newData = { id, name, description, created, url };
+      result = result.concat([newData]);
+    }
+  }
+  const newUsers = { ...users, [username]: result };
   const newPrevUser = currentUsername === username ? username : prevUsername;
   return [newUsers, newPrevUser];
 };
