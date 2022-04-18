@@ -132,7 +132,7 @@ h4 {
   top: 0;
   height: 100%;
   width: 0.5em;
-  left: calc(10vw + 23px);
+  left: 15vw;
   background-color: #e5e5e5;
 }
 
@@ -170,16 +170,12 @@ h4 {
   border-top: #e5e5e5 solid 0.1em;
   width: 2.5em;
   top: 0.6em;
-  left: calc(10vw - 2.5% - 5.5px);
+  left: calc(12.6vw - 16.5px);
 }
 
 @media (min-width: 640px) {
   .line {
-    left: calc(50vw - 233px);
-  }
-
-  .year .year-label::after {
-    left: calc(50vw - 2.5% - 284px);
+    left: calc((100vw - 40em) / 2 + 15vw);
   }
 }
 
