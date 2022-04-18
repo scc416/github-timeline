@@ -8,12 +8,7 @@ import {
   ADD_ERROR,
   REMOVE_ERROR,
 } from "constants";
-import {
-  getNewUsername,
-  getNewUsers,
-  getInvalidUsername,
-  errorAfterSubmit,
-} from "helpers";
+import { getNewUsername, getNewUsers, getInvalidUsername } from "helpers";
 
 const rootReducer = (state = initState, action) => {
   switch (action.type) {
@@ -21,13 +16,11 @@ const rootReducer = (state = initState, action) => {
       const { input } = action;
       return { ...state, input };
     case SUMBIT_USERNAME:
-      const username = getNewUsername(state.input);
-      const error = errorAfterSubmit(state.error);
-      return { ...state, username, error, input: "" };
+      const username = getNewUsername(action.username);
+      return { ...state, username, error: null };
     case STORE_DATA:
       const users = getNewUsers(action.data, action.username, state.users);
-      console.log(users);
-      return { ...state, users, username: action.username };
+      return { ...state, users };
     case TO_LOADING_STATE:
       return { ...state, loading: true };
     case STOP_LOADING_STATE:

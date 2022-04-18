@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { updateInput, fetchData } from "actions";
+import { updateInput, submitUsername } from "actions";
 import Icon from "@mdi/react";
 import { mdiMagnify } from "@mdi/js";
 import Spin from "./Spin";
@@ -10,7 +10,7 @@ const UsernameForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(fetchData(input));
+    dispatch(submitUsername(input));
   };
 
   return (

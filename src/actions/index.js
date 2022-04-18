@@ -8,7 +8,7 @@ import {
   REMOVE_ERROR,
   resultPerPage,
   invalidUsernameError,
-  USERNAME_ERROR_STR
+  USERNAME_ERROR_STR,
 } from "constants";
 import { getUrl } from "helpers";
 import axios from "axios";
@@ -17,12 +17,12 @@ export const updateInput = (input) => {
   return { type: UPDATE_INPUT, input };
 };
 
-export const submitUsername = () => {
-  return { type: SUMBIT_USERNAME };
-};
-
 export const removeError = () => {
   return { type: REMOVE_ERROR };
+};
+
+export const submitUsername = (username) => {
+  return { type: SUMBIT_USERNAME, username };
 };
 
 const makeError = ({ status, statusText }, username) => {
@@ -60,7 +60,6 @@ const fetchMorePage = async (dispatch, username, pageNum, length) => {
 
 export const fetchData = (username) => {
   return async (dispatch, getState) => {
-    console.log(username);
     const { invalidUsername, users } = getState();
     try {
       const isInvalid = invalidUsername.includes(username);
@@ -75,7 +74,6 @@ export const fetchData = (username) => {
       dispatch({ type: STORE_DATA, username, data });
       fetchMorePage(dispatch, username, 2, data.length);
     } catch (e) {
-      console.log(e);
       const { response } = e;
       dispatch({ type: STOP_LOADING_STATE });
       const action = makeError(response, username);

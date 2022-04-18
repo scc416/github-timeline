@@ -26,6 +26,3 @@ export const dateFormatter = (date) => moment(date).format("LL");
 export const getYear = (date) => parseInt(moment(date).format("YYYY"));
 export const displayNow = (year) =>
   parseInt(year) === parseInt(moment().format("YYYY")) + 1 ? "Now" : year;
-
-export const errorAfterSubmit = (error) =>
-  !error === USERNAME_ERROR_STR && error;
