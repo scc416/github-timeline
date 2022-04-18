@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchData } from "actions";
 import TimelineList from "./TimeLineList";
+import Spin from "./Spin";
 import Title from "./Title";
 import "./Timeline.css";
 import useBackToTop from "hooks/useBackToTop";
@@ -28,6 +29,7 @@ const Timeline = () => {
       <div className="Timeline" ref={timeline}>
         <Title />
         <TimelineList />
+        <Spin />
       </div>
     </>
   );
