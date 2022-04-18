@@ -133,14 +133,7 @@ h4 {
   height: 100%;
   width: 0.5em;
   left: calc(10vw + 23px);
-  /* 87 */
   background-color: #e5e5e5;
-}
-
-@media (min-width: 640px) {
-  .line {
-    left: calc(50vw - 233px);
-  }
 }
 
 .line::before {
@@ -177,7 +170,17 @@ h4 {
   border-top: #e5e5e5 solid 0.1em;
   width: 2.5em;
   top: 0.6em;
-  left: 2.6em;
+  left: calc(10vw - 2.5% - 5.5px);
+}
+
+@media (min-width: 640px) {
+  .line {
+    left: calc(50vw - 233px);
+  }
+
+  .year .year-label::after {
+    left: calc(50vw - 2.5% - 284px);
+  }
 }
 
 @media (min-width: 768px) {
