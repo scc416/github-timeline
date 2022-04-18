@@ -2,10 +2,13 @@ import { useSelector } from "react-redux";
 
 const Title = () => {
   const { repos, username, loading } = useSelector(
-    ({ username, users, loading }) => {
+    ({ username, users, loading, prevUsername }) => {
+      const currentData = username && username in users && users[username];
+      const prevData =
+        prevUsername && prevUsername in users && users[prevUsername];
       return {
-        username,
-        repos: username && users[username],
+        username: currentData ? username : prevUsername,
+        repos: currentData || prevData,
         loading,
       };
     }

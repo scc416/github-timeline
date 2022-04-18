@@ -10,9 +10,9 @@
 }
 
 .Timeline .years {
+  flex-grow: 1;
   display: flex;
   width: 100%;
-  justify-content: center;
   flex-direction: column;
   position: relative;
   padding-bottom: 3em;

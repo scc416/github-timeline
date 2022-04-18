@@ -8,14 +8,22 @@ export const getNewUsername = (input, prevUsername, invalidUsername) => {
   return [username, null];
 };
 
-export const getNewUsers = (data, username, users) => {
+export const getNewUsers = (
+  data,
+  username,
+  users,
+  currentUsername,
+  prevUsername
+) => {
   const existingData = users[username] || [];
   const formattedData = existingData.concat(
     data.map(({ id, name, created_at, html_url, description }) => {
       return { id, name, description, created: created_at, url: html_url };
     })
   );
-  return { ...users, [username]: formattedData };
+  const newUsers = { ...users, [username]: formattedData };
+  const newPrevUser = currentUsername === username ? username : prevUsername;
+  return [newUsers, newPrevUser];
 };
 
 export const getUrl = (username, pageNum) => {

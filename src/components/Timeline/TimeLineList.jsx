@@ -34,7 +34,9 @@ const makeElm = (repos) => {
 
 const TimelineList = () => {
   const repos = useSelector(
-    ({ username, users }) => username && username in users && users[username]
+    ({ username, users, prevUsername }) =>
+      (username && username in users && users[username]) ||
+      (prevUsername && prevUsername in users && users[prevUsername])
   );
 
   const reposElm = makeElm(repos);

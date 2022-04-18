@@ -5,6 +5,7 @@ export const initState = {
   loading: null,
   error: null,
   invalidUsername: [],
+  prevUsername: null,
 };
 
 export const invalidUsernameError = { response: { status: 404 } };
