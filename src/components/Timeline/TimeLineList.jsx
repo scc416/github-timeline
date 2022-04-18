@@ -3,7 +3,8 @@ import TimelineListItem from "./TimelineListItem";
 import { getYear, displayNow } from "helpers";
 
 const makeElm = (repos) => {
-  if (!repos || !Array.isArray(repos)) return;
+  if (!repos || !Array.isArray(repos) || !repos.length) return;
+  console.log(repos);
   const earliestYear = getYear(repos[repos.length - 1].created);
   const latestYear = getYear(repos[0].created) + 1;
   const result = {};
@@ -44,7 +45,7 @@ const TimelineList = () => {
   return (
     <>
       <div className="years">
-        {repos && repos.length && <div className="line"></div>}
+        {repos && <div className="line"></div>}
         {reposElm}
       </div>
     </>

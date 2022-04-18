@@ -30,6 +30,7 @@ const rootReducer = (state = initState, action) => {
         state.username,
         state.prevUsername
       );
+      console.log(users, prevUsername);
       return { ...state, users, prevUsername };
     case TO_LOADING_STATE:
       return { ...state, loading: true };
