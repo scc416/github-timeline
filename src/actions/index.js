@@ -60,11 +60,15 @@ const fetchMorePage = async (dispatch, username, pageNum, length) => {
 
 export const fetchData = (username) => {
   return async (dispatch, getState) => {
-    const { invalidUsername } = getState();
+    console.log(username);
+    const { invalidUsername, users } = getState();
     try {
       const isInvalid = invalidUsername.includes(username);
       if (isInvalid) throw invalidUsernameError;
-
+      const alreadyFetched = username in users;
+      if (alreadyFetched) {
+        return dispatch({ type: STORE_DATA, username, data: [] });
+      }
       const url = getUrl(username);
       dispatch({ type: TO_LOADING_STATE });
       const { data } = await axios.get(url);

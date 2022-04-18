@@ -26,7 +26,8 @@ const rootReducer = (state = initState, action) => {
       return { ...state, username, error, input: "" };
     case STORE_DATA:
       const users = getNewUsers(action.data, action.username, state.users);
-      return { ...state, users };
+      console.log(users);
+      return { ...state, users, username: action.username };
     case TO_LOADING_STATE:
       return { ...state, loading: true };
     case STOP_LOADING_STATE:

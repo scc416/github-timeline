@@ -26,3 +26,20 @@
 .Header .input:first-child {
   color: #7e85b0;
 }
+
+.spin {
+  display: block;
+  width: 1em;
+  height: 1em;
+  margin: 1.5em auto;
+  border: 0.15em solid transparent;
+  border-radius: 50%;
+  border-top-color: #ec714a;
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
