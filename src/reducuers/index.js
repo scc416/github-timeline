@@ -1,6 +1,7 @@
 import {
   initState,
   UPDATE_INPUT,
+  SUMBIT_USERNAME,
   STORE_DATA,
   TO_LOADING_STATE,
   STOP_LOADING_STATE,
@@ -19,6 +20,10 @@ const rootReducer = (state = initState, action) => {
     case UPDATE_INPUT:
       const { input } = action;
       return { ...state, input };
+    case SUMBIT_USERNAME:
+      const username = getNewUsername(state.input);
+      const error = errorAfterSubmit(state.error);
+      return { ...state, username, error, input: "" };
     case STORE_DATA:
       const users = getNewUsers(action.data, action.username, state.users);
       console.log(users);
