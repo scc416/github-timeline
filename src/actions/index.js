@@ -9,7 +9,7 @@ import {
   resultPerPage,
   invalidUsernameError,
   USERNAME_ERROR_STR,
-  // GENERAL_ERROR_STR,
+  GENERAL_ERROR_STR,
 } from "constants";
 import { getUrl } from "helpers";
 import axios from "axios";
@@ -27,9 +27,8 @@ export const submitUsername = (username) => {
 };
 
 const makeError = (e, username) => {
-  const { response } = e;
-  const { status, statusText } = response || e;
-  console.log(status, statusText);
+  if (!e) return { type: ADD_ERROR, error: GENERAL_ERROR_STR };
+  const { statusText, status } = e;
   switch (status) {
     case 404:
       return {
@@ -77,9 +76,9 @@ export const fetchData = (username) => {
       const { data } = await axios.get(url);
       dispatch({ type: STORE_DATA, username, data });
       fetchMorePage(dispatch, username, 2, data.length);
-    } catch (e) {
+    } catch ({ response }) {
       dispatch({ type: STOP_LOADING_STATE });
-      const action = makeError(e, username);
+      const action = makeError(response, username);
       dispatch(action);
     }
   };
