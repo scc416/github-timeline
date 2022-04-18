@@ -1,0 +1,2 @@
+/users/*  https://api.github.com/users/:splat 200
+/*  /index.html 200
