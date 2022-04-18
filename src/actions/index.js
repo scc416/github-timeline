@@ -29,6 +29,7 @@ export const submitUsername = (username) => {
 const makeError = (e, username) => {
   const { response } = e;
   const { status, statusText } = response || e;
+  console.log(status, statusText);
   switch (status) {
     case 404:
       return {
