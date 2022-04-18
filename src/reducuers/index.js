@@ -21,7 +21,7 @@ const rootReducer = (state = initState, action) => {
         state.username,
         state.invalidUsername
       );
-      return { ...state, username, error, loading: false };
+      return { ...state, username, error };
     case STORE_DATA:
       const [users, prevUsername] = getNewUsers(
         action.data,
