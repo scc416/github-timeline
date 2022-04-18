@@ -1,7 +1,12 @@
 import { resultPerPage, USERNAME_ERROR_STR } from "constants";
 import moment from "moment";
 
-export const getNewUsername = (input) => input.trim().toLowerCase();
+export const getNewUsername = (input, prevUsername, invalidUsername) => {
+  const username = input.trim().toLowerCase();
+  const isInvalid = invalidUsername.includes(username);
+  if (isInvalid) return [prevUsername, USERNAME_ERROR_STR];
+  return [username, null];
+};
 
 export const getNewUsers = (data, username, users) => {
   const existingData = users[username] || [];

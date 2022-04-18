@@ -16,8 +16,12 @@ const rootReducer = (state = initState, action) => {
       const { input } = action;
       return { ...state, input };
     case SUMBIT_USERNAME:
-      const username = getNewUsername(action.username);
-      return { ...state, username, error: null };
+      const [username, error] = getNewUsername(
+        action.username,
+        state.username,
+        state.invalidUsername
+      );
+      return { ...state, username, error, loading: false };
     case STORE_DATA:
       const users = getNewUsers(action.data, action.username, state.users);
       return { ...state, users };
