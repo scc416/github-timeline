@@ -27,7 +27,7 @@ const Title = () => {
           </a>
         </>
       ) : (
-        "Enter GitHub Username to get user's timeline"
+        "Enter GitHub username to produce timeline"
       )}
     </h1>
   );
