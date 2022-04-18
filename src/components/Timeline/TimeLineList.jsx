@@ -4,7 +4,6 @@ import { getYear, displayNow } from "helpers";
 
 const makeElm = (repos) => {
   if (!repos || !Array.isArray(repos) || !repos.length) return;
-  console.log(repos);
   const earliestYear = getYear(repos[repos.length - 1].created);
   const latestYear = getYear(repos[0].created) + 1;
   const result = {};
