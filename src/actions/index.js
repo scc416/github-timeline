@@ -78,7 +78,7 @@ export const fetchData = (username) => {
       fetchMorePage(dispatch, username, 2, data.length);
     } catch (e) {
       const { response } = e;
-      console.log(e);
+      console.log(e, response, e.status, e.statusText);
       dispatch({ type: STOP_LOADING_STATE });
       const action = makeError(response, username);
       dispatch(action);
