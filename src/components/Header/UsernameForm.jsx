@@ -16,13 +16,15 @@ const UsernameForm = () => {
   return (
     <form onSubmit={submitHandler}>
       <div className="input">
-        <Icon path={mdiMagnify} size={1} />
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => dispatch(updateInput(e.target.value))}
-          placeholder="Search GitHub Username"
-        />
+        <div>
+          <Icon path={mdiMagnify} size={1} />
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => dispatch(updateInput(e.target.value))}
+            placeholder="Search GitHub Username"
+          />
+        </div>
         <Spin />
       </div>
     </form>

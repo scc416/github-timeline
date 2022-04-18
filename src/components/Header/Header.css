@@ -9,15 +9,22 @@
   background: #2d315d;
   display: flex;
   align-items: center;
-  padding-left: 0.5em;
+  justify-content: space-between;
+  padding: 0 1.5em 0 0.5em;
   border-radius: 0.3em;
+  position: relative;
+}
+
+.Header .input > div {
+  display: flex;
+  align-items: center;
 }
 
 .Header input {
   background: #2d315d;
   border: none;
   padding: 1em;
-  width: 20em;
+  width: 15em;
   outline: none;
   color: #e5e5e5;
 }
@@ -31,11 +38,12 @@
   display: block;
   width: 1em;
   height: 1em;
-  margin: 1.5em auto;
   border: 0.15em solid transparent;
   border-radius: 50%;
   border-top-color: #ec714a;
   animation: spin 1s ease infinite;
+  position: absolute;
+  right: 0.7em;
 }
 
 @keyframes spin {
