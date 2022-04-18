@@ -64,7 +64,7 @@ h4 {
 }
 
 .Timeline .repo {
-  width: 80%;
+  width: 75%;
   max-width: 40em;
   color: #a5b4d9;
   position: relative;
@@ -132,7 +132,7 @@ h4 {
   top: 0;
   height: 100%;
   width: 0.5em;
-  left: 15vw;
+  left: calc(15vw + 2.5%);
   background-color: #e5e5e5;
 }
 
@@ -170,12 +170,12 @@ h4 {
   border-top: #e5e5e5 solid 0.1em;
   width: 2.5em;
   top: 0.6em;
-  left: calc(12.6vw - 16.5px);
+  left: calc(15.1vw - 16.5px);
 }
 
 @media (min-width: 640px) {
   .line {
-    left: calc((100vw - 40em) / 2 + 15vw);
+    left: calc((100vw - 40em) / 2 + 17.5vw);
   }
 }
 
