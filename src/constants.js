@@ -21,3 +21,4 @@ export const ADD_ERROR = "ADD_ERROR";
 export const REMOVE_ERROR = "REMOVE_ERROR";
 
 export const USERNAME_ERROR_STR = "Invalid username";
+export const GENERAL_ERROR_STR = "There was an error";

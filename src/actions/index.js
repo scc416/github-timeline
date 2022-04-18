@@ -9,6 +9,7 @@ import {
   resultPerPage,
   invalidUsernameError,
   USERNAME_ERROR_STR,
+  GENERAL_ERROR_STR,
 } from "constants";
 import { getUrl } from "helpers";
 import axios from "axios";
@@ -25,7 +26,9 @@ export const submitUsername = (username) => {
   return { type: SUMBIT_USERNAME, username };
 };
 
-const makeError = ({ status, statusText }, username) => {
+const makeError = (e, username) => {
+  if (!e) return { type: ADD_ERROR, error: GENERAL_ERROR_STR };
+  const { status, statusText } = e;
   switch (status) {
     case 404:
       return {
@@ -75,6 +78,7 @@ export const fetchData = (username) => {
       fetchMorePage(dispatch, username, 2, data.length);
     } catch (e) {
       const { response } = e;
+      console.log(e);
       dispatch({ type: STOP_LOADING_STATE });
       const action = makeError(response, username);
       dispatch(action);
