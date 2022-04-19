@@ -17,6 +17,25 @@ https://the-github-timeline.netlify.app/
 
 ## Final Product
 
+### Initial Layout
+
+![Initial - Desktop](./docs/init-desktop.png)
+![Initial - Phone](./docs/init-phone.png)
+
+### Timeline
+
+![Timeline - Desktop](./docs/timeline-desktop-1.png)
+![Timeline  - Desktop](./docs/timeline-desktop-2.png)
+![Timeline  - Phone](./docs/timeline-phone.png)
+
+### Handle Error
+
+![Error](./docs/error.png)
+
+### Loading
+
+![Loading](./docs/loading.png)
+
 ## Getting Started
 
 1. Clone or download this repository onto your local device.
@@ -28,6 +47,12 @@ https://the-github-timeline.netlify.app/
 ## Dependencies
 
 - [React](https://reactjs.org/)
+- [Redux](https://redux.js.org)
+- [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+- [React Redux](https://react-redux.js.org/)
+- [Axios](https://axios-http.com/)
+- [Moment.js](https://momentjs.com/)
+- [Material Design Icons](https://materialdesignicons.com/): (@mdi/js)[https://github.com/Templarian/MaterialDesign], (@mdi/react)[https://github.com/Templarian/MaterialDesign-React]
 
 ## Credit
 
