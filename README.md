@@ -52,7 +52,7 @@ https://the-github-timeline.netlify.app/
 - [React Redux](https://react-redux.js.org/)
 - [Axios](https://axios-http.com/)
 - [Moment.js](https://momentjs.com/)
-- [Material Design Icons](https://materialdesignicons.com/): (@mdi/js)[https://github.com/Templarian/MaterialDesign], (@mdi/react)[https://github.com/Templarian/MaterialDesign-React]
+- [Material Design Icons](https://materialdesignicons.com/): [@mdi/js](https://github.com/Templarian/MaterialDesign), [@mdi/react](https://github.com/Templarian/MaterialDesign-React)
 
 ## Credit
 
